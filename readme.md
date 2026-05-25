@@ -1,59 +1,159 @@
-# 🤖 Groq Chatbot CLI
+# README.md
 
-Un chatbot en ligne de commande utilisant l'API **Groq** via le client OpenAI, propulsé par le modèle **LLaMA 3.3 70B**.
+````md
+# 🤖 French AI Chatbot with Groq + OpenAI SDK
 
-## 📋 Prérequis
+Un petit projet Python permettant de créer une IA conversationnelle française en utilisant l'API Groq avec le SDK OpenAI officiel.
 
-- Python 3.8+
-- Une clé API [Groq](https://console.groq.com/)
+---
+
+## ✨ Fonctionnalités
+
+- 🇫🇷 Réponses en français
+- ⚡ Utilise l’API ultra rapide de Groq
+- 🧠 Modèle `llama-3.3-70b-versatile`
+- 💬 Chat en boucle dans le terminal
+- 🔧 Simple et facile à modifier
+
+---
 
 ## 📦 Installation
+
+### 1️⃣ Cloner le projet
+
+```bash
+git clone https://github.com/your-username/french-ai-chatbot.git
+cd french-ai-chatbot
+````
+
+### 2️⃣ Installer les dépendances
 
 ```bash
 pip install openai
 ```
 
-## ⚙️ Configuration
+---
 
-Remplace `"grok key"` dans le code par ta clé API Groq :
+## 🔑 Configuration
+
+Remplace la clé API dans le code :
 
 ```python
-api_key="TA_CLE_API_GROQ"
+api_key="your_groq_api_key"
 ```
 
-> ⚠️ Ne partage jamais ta clé API publiquement. Utilise de préférence une variable d'environnement :
-> ```python
-> import os
-> api_key=os.getenv("GROQ_API_KEY")
-> ```
+Tu peux obtenir une clé API ici :
+
+👉 [https://console.groq.com/](https://console.groq.com/)
+
+---
 
 ## 🚀 Utilisation
 
+Lancer le script :
+
 ```bash
-python chatbot.py
+python main.py
 ```
 
-Le bot démarre une boucle interactive. Tape ton message et appuie sur Entrée pour obtenir une réponse.
+Ensuite, écris simplement un message dans le terminal :
 
-```
-Awnser: Bonjour, comment tu vas ?
-> Ça va, merci de demander. Et toi ?
-Awnser: _
+```bash
+Awnser: Salut !
 ```
 
-Pour quitter, utilise `Ctrl+C`.
+Exemple de réponse :
 
-## 🧠 Modèle utilisé
+```bash
+Salut 👋 Comment vas-tu ?
+```
 
-| Paramètre        | Valeur                    |
-|------------------|---------------------------|
-| Modèle           | `llama-3.3-70b-versatile` |
-| Max tokens       | 80                        |
-| Fournisseur      | Groq                      |
+---
 
-## 📁 Structure
+## 🧠 Code Source
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="your_groq_api_key",
+    base_url="https://api.groq.com/openai/v1",
+)
+
+while True:
+    chat = input("Awnser: ")
+
+    response = client.responses.create(
+        model="llama-3.3-70b-versatile",
+        input=[
+            {
+                "role": "system",
+                "content": "You are a French AI..."
+            },
+            {
+                "role": "user",
+                "content": chat
+            }
+        ],
+        max_output_tokens=80
+    )
+
+    print(response.output_text)
+```
+
+---
+
+## 📁 Structure du projet
+
+```bash
+📦 french-ai-chatbot
+ ┣ 📜 main.py
+ ┣ 📜 README.md
+ ┗ 📜 requirements.txt
+```
+
+---
+
+## 🛠 Requirements.txt
+
+```txt
+openai
+```
+
+---
+
+## ⚠️ Important
+
+Le prompt système actuel donne beaucoup de liberté au modèle.
+Fais attention si tu veux publier ce projet ou le rendre accessible au public.
+
+---
+
+## 💡 Idées d'amélioration
+
+* Ajouter une mémoire de conversation
+* Interface graphique avec Tkinter ou CustomTkinter
+* Historique des messages
+* Commandes personnalisées
+* Support vocal
+* Mode sombre
+* Streaming des réponses
+
+---
+
+## 📜 Licence
+
+Projet open-source sous licence MIT.
+
+---
+
+## ❤️ Crédits
+
+* API : Groq
+* SDK : OpenAI Python
+* Modèle : Llama 3.3 70B Versatile
+
+---
 
 ```
-.
-└── chatbot.py   # Script principal
 ```
