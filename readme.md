@@ -76,15 +76,6 @@ Salut 👋 Comment vas-tu ?
 📦 french-ai-chatbot
  ┣ 📜 main.py
  ┣ 📜 README.md
- ┗ 📜 requirements.txt
-```
-
----
-
-## 🛠 Requirements.txt
-
-```txt
-openai
 ```
 
 ---
@@ -102,9 +93,6 @@ Fais attention si tu veux publier ce projet ou le rendre accessible au public.
 * Interface graphique avec Tkinter ou CustomTkinter
 * Historique des messages
 * Commandes personnalisées
-* Support vocal
-* Mode sombre
-* Streaming des réponses
 
 ---
 
@@ -121,6 +109,3 @@ Projet open-source sous licence MIT.
 * Modèle : Llama 3.3 70B Versatile
 
 ---
-
-```
-```
