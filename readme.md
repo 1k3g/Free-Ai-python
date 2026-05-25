@@ -70,39 +70,6 @@ Salut 👋 Comment vas-tu ?
 
 ---
 
-## 🧠 Code Source
-
-```python
-from openai import OpenAI
-
-client = OpenAI(
-    api_key="your_groq_api_key",
-    base_url="https://api.groq.com/openai/v1",
-)
-
-while True:
-    chat = input("Awnser: ")
-
-    response = client.responses.create(
-        model="llama-3.3-70b-versatile",
-        input=[
-            {
-                "role": "system",
-                "content": "You are a French AI..."
-            },
-            {
-                "role": "user",
-                "content": chat
-            }
-        ],
-        max_output_tokens=80
-    )
-
-    print(response.output_text)
-```
-
----
-
 ## 📁 Structure du projet
 
 ```bash
